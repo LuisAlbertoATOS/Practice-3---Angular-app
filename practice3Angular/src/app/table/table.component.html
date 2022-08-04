@@ -1,0 +1,32 @@
+<p>table works!</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Capital</th>
+            <th>Region</th>
+            <th>Language</th>
+            <th>Population</th>
+            <th>Flag</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- <tr>
+            <td>Example</td>
+            <td>Example</td>
+            <td>Example</td>
+            <td>Example</td>
+            <td>Example</td>
+            <td>Example</td>
+        </tr> -->
+        <tr *ngFor="let country of rawCountries | async">
+            <td>{{ country.name.official }}</td>
+            <td>...</td>
+            <td>...</td>
+            <td>...</td>
+            <td>...</td>
+            <td>...</td>
+        </tr>
+    </tbody>
+</table>
