@@ -20,13 +20,17 @@
             <td>Example</td>
             <td>Example</td>
         </tr> -->
-        <tr *ngFor="let country of rawCountries | async">
-            <td>{{ country.name.official }}</td>
-            <td>...</td>
-            <td>...</td>
-            <td>...</td>
-            <td>...</td>
-            <td>...</td>
+        
+        <!-- <tr (click)="getCountryInfo(country.name.official)" *ngFor="let country of rawCountries | async"> -->
+        <tr *ngFor="let country of rawCountries | async"
+        [routerLink]="['country', country.name.official]"
+                routerLinkActive="router-link-active">
+                <td>{{ country.name.official }}</td>
+                <td>{{ country.capital }}</td>
+                <td>{{ country.region }}</td>
+                <td>{{ country.languages | languages }}</td>
+                <td>{{ country.population }}</td>
+                <td>{{ country.flag }}</td>
         </tr>
     </tbody>
 </table>

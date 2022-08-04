@@ -6,16 +6,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CountryProviderService } from './services/country-provider.service';
 import { TableComponent } from './table/table.component';
+import { CountryInfoComponent } from './country-info/country-info.component';
+import { RoutingModule } from './modules/routing/routing.module';
+import { LanguagesPipe } from './pipes/languages.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TableComponent
+    TableComponent,
+    CountryInfoComponent,
+    LanguagesPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    RoutingModule
   ],
   providers: [CountryProviderService],
   bootstrap: [AppComponent]

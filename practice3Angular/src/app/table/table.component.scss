@@ -1,5 +1,6 @@
 table{
     width: 95vw;
+    border-spacing: 0;
     tr{
         height: 2rem;
         th {
@@ -7,8 +8,7 @@ table{
         }
         td {
             background-color: rgb(152, 228, 225);
+            
         }
-    }
-    
-    
+    }  
 }
