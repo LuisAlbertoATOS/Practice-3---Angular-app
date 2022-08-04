@@ -22,13 +22,13 @@
         </tr> -->
         
         <!-- <tr (click)="getCountryInfo(country.name.official)" *ngFor="let country of rawCountries | async"> -->
-        <tr *ngFor="let country of rawCountries | async"
-        [routerLink]="['country', country.name.official]"
-                routerLinkActive="router-link-active">
-                <td>{{ country.name.official }}</td>
+        <tr *ngFor="let country of countryList | async"
+            [routerLink]="['country', country.name]"
+            routerLinkActive="router-link-active">
+                <td>{{ country.name }}</td>
                 <td>{{ country.capital }}</td>
                 <td>{{ country.region }}</td>
-                <td>{{ country.languages | languages }}</td>
+                <td>{{ country.language | languages }}</td>
                 <td>{{ country.population }}</td>
                 <td>{{ country.flag }}</td>
         </tr>

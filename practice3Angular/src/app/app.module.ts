@@ -9,13 +9,15 @@ import { TableComponent } from './table/table.component';
 import { CountryInfoComponent } from './country-info/country-info.component';
 import { RoutingModule } from './modules/routing/routing.module';
 import { LanguagesPipe } from './pipes/languages.pipe';
+import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     TableComponent,
     CountryInfoComponent,
-    LanguagesPipe
+    LanguagesPipe,
+    SortPipe
   ],
   imports: [
     BrowserModule,

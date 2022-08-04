@@ -1,9 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { map, Observable, Subject } from 'rxjs';
 import { Country } from '../interfaces/country';
 import { countryFromUrl } from '../interfaces/countryFromUrl.interface';
 import { wikipediaInfo } from '../interfaces/wikipediaInfo.interface';
 import { CountryProviderService } from '../services/country-provider.service';
+import { Mapper } from '../utility/mapper';
 
 @Component({
   selector: 'app-table',
@@ -11,7 +12,7 @@ import { CountryProviderService } from '../services/country-provider.service';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
-  public countryList:Country[] = [];
+  public countryList!:Observable<Country[]>;
   public rawCountries!:Observable<countryFromUrl[]>;
   
   public wikipediaInfo!:Observable<wikipediaInfo>;
@@ -21,12 +22,13 @@ export class TableComponent implements OnInit {
   ngOnInit(): void {
     console.log("hey");
 
-    this.rawCountries = this.provider.getCountries();
-    // console.log(this.rawCountries);
-
-    // this.rawContries.forEach((element) => {
-    //   console.log("hey");
-    // })
+    this.countryList = this.provider.getCountries().pipe(
+      map(
+        (countryList) => countryList.map(
+          country => Mapper.mapCountryFromUrlToCountry(country)
+        )
+      )
+    );
   } 
   
   public getCountryInfo(name:string):void{
