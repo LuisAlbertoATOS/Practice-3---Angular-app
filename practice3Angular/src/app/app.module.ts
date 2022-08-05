@@ -10,6 +10,7 @@ import { CountryInfoComponent } from './country-info/country-info.component';
 import { RoutingModule } from './modules/routing/routing.module';
 import { LanguagesPipe } from './pipes/languages.pipe';
 import { SortPipe } from './pipes/sort.pipe';
+import { PaginationPipe } from './pipes/pagination.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SortPipe } from './pipes/sort.pipe';
     TableComponent,
     CountryInfoComponent,
     LanguagesPipe,
-    SortPipe
+    SortPipe,
+    PaginationPipe
   ],
   imports: [
     BrowserModule,

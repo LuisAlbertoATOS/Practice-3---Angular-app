@@ -1,5 +1,26 @@
 <p>table works!</p>
 
+<div class="toggle-order-btn">
+    <button
+    type="button"
+    (click)="toggleOrder()"
+        >Order {{ order }}
+    </button>
+</div>
+<div class="pagination-btns">
+    <button 
+        type="button" 
+        (click)="paginate('prev')"
+        [disabled]="limits[0] === 0"
+        >Previous page
+    </button>
+    <p>Current page: {{ page }}</p>
+    <button 
+        type="button" 
+        (click)="paginate('next')"
+        [disabled]="limits[1] >= (countryList | async)!.length-1"
+    >Next page</button>
+</div>
 <table>
     <thead>
         <tr>
@@ -12,17 +33,8 @@
         </tr>
     </thead>
     <tbody>
-        <!-- <tr>
-            <td>Example</td>
-            <td>Example</td>
-            <td>Example</td>
-            <td>Example</td>
-            <td>Example</td>
-            <td>Example</td>
-        </tr> -->
-        
-        <!-- <tr (click)="getCountryInfo(country.name.official)" *ngFor="let country of rawCountries | async"> -->
-        <tr *ngFor="let country of countryList | async"
+        <!-- TODO router link outside of table row -->
+        <tr *ngFor="let country of (countryList | async)! | sort:order | pagination:limits"
             [routerLink]="['country', country.name]"
             routerLinkActive="router-link-active">
                 <td>{{ country.name }}</td>

@@ -12,3 +12,14 @@ table{
         }
     }  
 }
+
+.pagination-btns{
+    display: inline-flex;
+    align-items: center;
+
+    button, p {
+        height: 2rem;
+        margin-right: 1rem;
+        margin-bottom: 0;
+    }
+}
